@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<title>Welcome to Ubatuba Acai</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/carousel.css">
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="js/jquery.carouFredSel-6.0.4-packed.js"></script>
+	<script>
+		$(function() {
+				$('#carousel').carouFredSel({
+					width: '100%',
+					auto    : false,
+					items: {
+						visible: 3,
+						start: -1
+					},
+					scroll: {
+						items: 1,
+						duration: 1000,
+						timeoutDuration: 5000
+					},
+					prev: '#prev',
+					next: '#next',
+					pagination: {
+						container: '#pager',
+						deviation: 1
+					}
+				});
+			});
+
+	</script>
+	</head>
+	<body>
+		<nav class="purpleBg navbar navbar-static-top u-no_marginbottom ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+	      <a class="navbar-brand" href="http://ubatubaacai.com/"><img src="img/logo.png" class="logo" width="136" height="50"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-nav navbar-right purpleBg">
+          <ul class="nav navbar-nav">
+            <li><a href="#" class="text-white">Home</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Locations<span class="caret"></span></a>
+              <ul class="dropdown-menu purpleBg">
+					<li><a href="tarzana.php" class="text-white">Tarzana</a></li>
+					<li><a href="northridge.php" class="text-white">Northridge</a></li>
+					<li><a href="koreatown.php" class="text-white">Koreatown</a></li>
+					<li><a href="to.php" class="text-white">Thousand Oaks</a></li>
+					<li><a href="slo.php" class="text-white">San Luis Obispo</a></li>
+					<li><a href="sm.php" class="text-white">Santa Monica</a></li>
+              </ul>
+            </li>
+         	<li><a href="about.php" class="text-white">About Us</a></li>
+			<li><a href="contact.php" class="text-white">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+		<!-- Carousel -->
+		<div class="container-fluid purpleBg navPadding">
+			<!-- Carousel -->
+			<div class="row">
+				<div class="col-sm-12 carouselCont">
+					<div id="wrapper purpleBg">
+						<div id="carousel">
+							<img src="img/acai_bg.jpg" />
+							<img src="img/acai1_bg.jpg" />
+							<img src="img/acai2_bg.jpg" alt="">
+							<img src="img/acaipour.jpg" alt="">
+							<img src="img/berry2.jpg" alt="">
+						</div>
+						<a href="#" id="prev" title="Show previous"> </a>
+						<a href="#" id="next" title="Show next"> </a>
+					</div>
+				</div>
+			</div>
+				<!-- Carousel End -->
+
+				<div class="row yellowBg">
+					<div class="container">
+						<div class="col-sm-6">
+							<div class=" orangeBg orangeBorder box text-white text-sm-center marginauto">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam tempora hic assumenda distinctio libero non cumque facilis, pariatur quasi atque, dignissimos, molestias error repudiandae. Aspernatur modi, facere eius a inventore!</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam tempora hic assumenda distinctio libero non cumque facilis, pariatur quasi atque, dignissimos, molestias error repudiandae. Aspernatur modi, facere eius a inventore!</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam tempora hic assumenda distinctio libero non cumque facilis, pariatur quasi atque, dignissimos, molestias error repudiandae. Aspernatur modi, facere eius a inventore!</p>
+							</div>
+						</div>
+						<div class="col-offset-1 col-sm-6">
+							<img src="img/main_1.png" />
+						</div>
+					</div>
+				</div>
+
+
+				<div class="row ingredients">
+					<div class="container">
+						<div class="col-sm-4 push-sm-4 chalkboard text-white text-sm-center">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nostrum delectus consectetur eveniet dolorum assumenda quaerat, enim nemo dicta atque sunt, possimus laudantium sit quidem maiores rerum repudiandae. Ipsam, alias.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero temporibus commodi, repellat possimus doloremque quo necessitatibus hic fugit minus distinctio, voluptate, eum! Fugit labore, eos dolor corporis sit ipsum tempore.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias, quisquam hic tempora officia eius numquam iste praesentium laborum aliquid necessitatibus quibusdam pariatur suscipit consequuntur nam voluptatum? Voluptates, ullam, officiis.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="row woodBg">
+					<div class="container">
+						<div class="col-sm-6 u-fullheight "><img src="img/berry.png" class="u-verticalCenter" /></div>
+						<div class="push-sm-1 col-sm-5 text-white u-fullheight">
+							<div class="u-verticalCenter text-sm-center">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, dolorum enim ratione atque voluptate ducimus nulla eveniet dolorem repellat quos incidunt harum nemo obcaecati similique, provident facilis ex commodi reprehenderit?</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae fuga, ut dignissimos quidem explicabo inventore vitae magnam excepturi ex! Autem ad officia repellendus eveniet sit, assumenda impedit ab, beatae molestias.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates numquam, labore. Autem, atque, dolore recusandae dolorum consequuntur vitae iusto, quas quibusdam vel minima alias enim error optio ratione delectus sit!</p>					</div>
+						</div>
+					</div>
+				</div>
+		</div>
+		</div>
+
+	</body>
+</html>

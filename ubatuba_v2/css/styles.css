@@ -1,0 +1,160 @@
+body { font-family: Helvetica, arial, sans-serif;}
+
+.height60 { 
+	height: 60px;
+	padding: 0;	
+}
+
+.navPadding { padding-top: 60px; }
+
+.paddingTop30 { padding-top:30px; }
+
+*:hover { transition: color 0.4s ease 0s;}
+
+nav { 
+	padding-top: 20px; 
+	height: 59px;	
+}
+
+ul {
+	list-style: none;
+	margin:  0;
+	padding: 0;
+}
+
+.text-white { color: #fff;}
+
+.text-purple { color: #6B3B17; }
+
+.underline {
+	width: 60%;
+	background-color: #6B3B17;
+	height: 2px;
+	margin-bottom: 20px;
+}
+
+a:hover {
+	color: #FC6D21;
+    text-decoration: none;
+}
+
+
+.purpleBg { background-color: rgba(72, 22, 111, 1); }
+
+.yellowBg { background-color: #FFCF00; }
+
+.orangeBg { background-color: #FC6D21; }
+
+.orangeBorder { border: solid 5px #AD4643; }
+
+.logo { margin-top: 4px; }
+
+#carousel-home ol { list-style: none;}
+
+.box {
+	padding: 30px;
+    margin: 50px 0;
+}
+
+.whiteBox { 
+	background-color: #fff;
+	height: 100%;
+	padding: 30px 50px 15px; 
+}
+
+p { font-size: 14px; }
+
+.ingredients { 
+	background:url("../img/main1_bg.jpg") repeat;
+	height: 510px;
+}
+
+.chalkboard {
+	background:url("../img/main_bg.jpg") no-repeat;
+	background-size: cover;
+	height: 100%;
+	padding: 20px;
+}
+
+.blackboard {
+	background:url("../img/blackboard.jpg") no-repeat;
+	background-size: cover;
+}
+
+.woodBg {
+	background:url("../img/wood_bg.png") no-repeat;
+	background-size: cover;
+	height:454px;
+}
+
+.acaipour {
+	background:url("../img/acaipour.jpg") no-repeat;
+	background-size: cover;
+	height: 513px;
+}
+
+.locations ul { 
+	display: none; 
+	position: absolute;
+    transition: color 0.4s ease 0s;
+}
+
+.locations:hover ul { 
+	display: block; 
+	transition: background-color 0.4s ease 0s;
+    left: -10px;
+    top:20px;
+}
+
+.locations ul li {
+	width: 100%;
+	padding: 10px 25px;
+	border-bottom: solid 1px #ccc;
+}
+
+.locations ul li:first-child {
+	margin-top: 20px;
+    border-top: solid 1px #ccc;
+}
+
+.locations ul li:last-child { border: none;  }
+
+/************************************
+************* Utilities *************
+************************************/
+
+.u-fixed { position: fixed; }
+
+.u-fullwidth { width: 100%; }
+
+.u-fullheight { height: 100%; }
+
+.u-no_marginbottom { margin-bottom: 0;}
+
+.u-marginauto { margin: 0 auto; } 
+
+.u-zindex-100 {z-index: 100; }
+
+.u-cursor { cursor: pointer; }
+
+.u-relative { position: relative; }
+
+.u-verticalCenter {
+	position:relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.u-block { display: block; }
+
+.u-underline {text-decoration: underline; }
+
+.u-font110 { font-size: 110%; }
+
+.u-noborder { border:none; }
+
+.u-nobackground { background-image: none; }
+
+.u-clear {clear: both;}
