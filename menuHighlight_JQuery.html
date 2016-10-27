@@ -16,20 +16,27 @@ li {
   border-right: 0;
   cursor: pointer;
 }
+
+li:hover,
+.active {
+	background-color: blue;
+	color: #fff;
+	border:solid 1px #000;
+	border-right: 0;
+}
+
 li:last-child { border-right: solid 1px #000;}
 
-li:hover {background-color: aliceblue;}
-
-.active {background-color: aliceblue;}
 </style>
 
 <script>
 $(document).ready(function(){
-	$('#menu li').on('click', function(e){
+	var el = $('#menu li');
+	$(el).on('click', function(e){
 		e.preventDefault();
-		$('#menu li').removeClass('active');
-  		$(this).addClass("active");
-  	
+		$(el).removeClass('active');
+		$(this).addClass('active');
+
 	});
 
 });
@@ -40,7 +47,7 @@ $(document).ready(function(){
 
 <body>
 <ul id="menu">
-  <li>menu 1</li>
+  <li onclick=>menu 1</li>
   <li>menu 2</li>
   <li>menu 3</li>
 </ul>
