@@ -1,4 +1,4 @@
-  function recursive() {
+  function factorial() {
   var n = 19;
   var x = 3;
     var y = 2 * n;
