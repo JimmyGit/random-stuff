@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>UI Business Card</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+
+	/** Set Border-box, CSS reset **/
+		* {
+			box-sizing: border-box;
+			font-family: 'PT Sans', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		a { text-decoration: none; }
+
+		img { max-width: 100%; }
+
+	/** CSS Reset END **/
+
+		html, 
+		body {
+			height: 100%;
+		}
+
+		ul { list-style: none; }
+
+		h1 {  }
+
+		.bc {
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		.bc img { width: 255px; }
+
+		.follow {
+			font-size: 1.2em;
+			letter-spacing: 0.1em;
+		}
+
+		/** Utilities **/
+		.u-white { color: white; }
+
+		.u-black { color: black; }
+
+		.u-bg-white { background-color: white; }
+
+		.u-uppercase { text-transform: uppercase; }
+
+		.u-grey,
+		li a:hover { color: #A1A2AE; }
+
+		.u-blue-gradient {    
+			background: #141B41;
+			background: linear-gradient(to left, #306BAC, #141B41);
+	        -webkit-background: linear-gradient(to left, #306BAC, #141B41);
+	        -moz-background: linear-gradient(to left, #306BAC, #141B41);
+	        -o-background: linear-gradient(to left, #306BAC, #141B41);
+	        -ms-background: linear-gradient(to left, #306BAC, #141B41);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#306BAC', endColorstr='#141B41');
+			zoom: 1;
+		}
+
+		.u-pink-gradient {
+			background: #E75A7C;
+			background: linear-gradient(to right, #E75A7C, #141B41);
+			-webkit-background: linear-gradient(to right, #E75A7C, #141B41);
+			-moz-background: linear-gradient(to right, #E75A7C, #141B41);
+			-o-background: linear-gradient(to right, #E75A7C, #141B41);
+			-ms-background: linear-gradient(to right, #E75A7C, #141B41);
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E75A7C', endColorstr='#141B41');
+			zoom: 1;
+		}
+
+		.u-boxshadow { box-shadow: 0px 0px 80px 1px #212129; }
+
+		.u-rounded {border-radius: 1em;}
+
+		.u-circle { border-radius: 100%; }
+
+		.u-mt-30 { margin-top: 30px; }
+
+		.u-p-30 { padding: 30px; }
+
+		.u-p-15 {padding: 15px;}
+
+		.u-mt-10 {margin-top: 10px;}
+
+		.u-mt-15 {margin-top: 15px;}
+
+		.u-mr-5 {margin-right: 5px;}
+
+		.u-mr-10 {margin-right: 10px;}
+
+		.u-font-2em { font-size: 2em;}
+
+		.u-font-2pt2em {font-size: 2.2em;}
+
+		.u-inline-block {display: inline-block;}
+
+		.u-width-33 { width: 33%; }
+
+		.u-text-center { text-align: center; }
+
+		.u-button { padding: 10px 45px; }
+
+		.u-transition { transition: 0.5s }
+
+		.u-button:hover { 
+			background: black; 
+			color: white;
+		}
+
+
+	</style>
+
+</head>
+<body class="u-pink-gradient">
+	<section class="bc u-blue-gradient u-rounded u-mt-30 u-text-center u-p-30 u-boxshadow">
+		<img class="u-circle u-mt-25" src="http://cdn0.iconfinder.com/data/icons/user-pictures/100/male-256.png" />
+		<h1 class="u-white u-font-2pt2em">J Tang</h1>
+		<p class="u-grey u-uppercase u-mt-10">Web Developer | Designer | Dreamer</p>
+		<ul class="social"> 
+			<li class="u-font-2em u-inline-block u-p-15 u-mt-10 u-mr-10 u-text-center"><a class="u-white u-transition" href="https://www.instagram.com/"><i class="fa fa-instagram" target="_blank"></i></a>
+         	<li class="u-font-2em u-inline-block u-p-15 u-mt-10 u-mr-10 u-text-center"><a class="u-white u-transition" href="https://www.behance.net/"><i class="fa fa-behance" target="_blank"></i></a></li>
+			<li class="u-font-2em u-inline-block u-p-15 u-mt-10 u-text-center"><a class="u-white u-transition" href="https://codepen.io" target="_blank"><i class="fa fa-codepen"></i></a></li></li>
+		</ul>
+		<a class="u-black u-bg-white u-button u-uppercase u-rounded u-transition follow"  href="https://twitter.com/heelhook79" target="_blank" class="follow"><i class="fa fa-twitter u-mr-5 u-mt-15"></i>Follow</a>	
+	</section>
+</body>
+</html>
