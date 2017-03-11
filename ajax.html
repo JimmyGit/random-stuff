@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<style>
+	:root {
+		--main-color: #666;
+		--border1: #3367d6;
+		--border2: aliceblue;
+		--link-color: #F48024;
+	}
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--link-color);
+	}
+
+	html,body {
+		height: 100%;
+	}
+
+	ul {
+		list-style-type: none;
+	}
+
+	section {
+		border: solid 2px var(--border1);
+		max-width: 600px;
+	}
+
+	p { color:var(--main-color); }
+	
+
+	.name {font-size:1.2em; }
+
+	.people { 
+		width: 100%;
+		border: solid 3px var(--border2); 
+	}
+
+	.u-center { margin: 0 auto; }
+
+	.u-mt-25 {margin-top: 25px;}
+	
+	.u-mt-15 {margin-top: 15px;}
+
+	.u-p-25 {padding: 25px;}
+
+	.u-fl {float: left;}
+</style>
+<script type="text/javascript">
+	$.ajax({
+		url: 'https://raw.githubusercontent.com/JimmyGit/random-stuff/master/people.json',
+		type: 'GET',
+		dataType: 'json',
+		success: function(data) {
+			obj = data;
+			var el = $('#target');
+			var div = "<div class='people u-mt-15 u-fl'></div>";
+			var name = "<p class='name'></p>";
+			var bio = "<p class='bio'><p>";
+			
+			
+
+			for(var i = 0; i < data.people.length; i++) {
+				el.append('<div class="people u-mt-15 u-fl">')
+				el.append('<p class="name">' + data.people[i].name + '</p>');
+				el.append('<p class="link"><a href="' + data.people[i].url + '">' + data.people[i].url + '</a></p>');
+				el.append('<p class="bio">' + data.people[i].bio + '</p></div>');
+			}
+			
+		}
+	});
+
+
+</script>
+<body>
+	<section id="target" class="u-center u-mt-25 u-p-25">
+	</section>
+</body>
+</html>
