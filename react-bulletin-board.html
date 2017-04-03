@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.js"></script>
+  <script src="https://npmcdn.com/react-draggable"></script>
+  <title>Bulletin Board</title>
+  <style>
+    html, body, h1, p {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body,
+    #react-container{
+      height: 100%;
+    }
+
+    .board {
+      background-color: #ccc;
+      height: 100%;
+      padding: 15px;
+    }
+
+    .board .newNote {
+      right: 15px;
+      top: 15px;
+      position: fixed;
+    }
+    .note {
+      width: 200px;
+      height: 200px;
+      box-sizing: border-box;
+      padding: 15px;
+      background-color: yellow;
+      position: absolute;
+      margin-bottom: 5px;
+      box-shadow: #999 3px 6px 17px;
+    }
+
+    .note:hover {
+      cursor: move;
+    }
+
+    .note:hover button{
+      display: block;
+    }
+
+    .note button {
+      float: right;
+      display: none;
+    }
+
+    textarea {
+      width: 95%;
+      height: 110px;
+    }
+    
+    button.saveBtn {
+      display: block;
+      float: left;
+    }
+
+    .note span {
+      width: 100%;
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  </style>
+</head>
+<body
+  <div id='react-container'></div>
+  
+  <script type="text/babel">
+    var Note = React.createClass({
+      getInitialState() {
+        return {editing: false}
+      },
+      componentWillMount(){
+        this.style = {
+          right: this.randomBetween(0, window.innerWidth - 200, 'px'),
+          top: this.randomBetween(0, window.innerHeight - 200, 'px')
+        }
+      },
+      componentDidUpdate() {
+        if (this.state.editing) {
+          this.refs.newText.focus()
+          this.refs.newText.select()
+        }
+      },
+      shouldComponentUpdate(nextProps, nextState) {
+        return this.props.children !== nextProps.childern || this.state !== nextState
+      },
+      randomBetween(x, y, s) {
+        return(x + Math.ceil(Math.random() * (y-x))) + s
+      },
+      edit() {
+        this.setState ({editing: true})
+      },
+      save() {
+        this.props.onChange(this.refs.newText.value, this.props.id)
+        this.setState({editing: false})
+      },
+      remove() {
+        this.props.onRemove(this.props.id)
+      },
+      renderForm () {
+        return (
+          <div className="note"
+              style={this.style}
+            >
+            <textarea ref="newText"
+                      defaultValue={this.props.children}>
+            </textarea>
+            <button className="saveBtn" onClick={this.save}>Save</button>
+          </div>
+        )
+      },
+      renderDisplay() {
+        return (
+          <div className='note'
+              style={this.style}
+          >
+            <p>{this.props.children}</p>
+            <span>
+              <button onClick={this.remove}>X</button>
+              <button onClick={this.edit}>Edit</button>
+            </span>
+          </div>
+        )
+      },
+      render() {
+        return ( <ReactDraggable>
+          {(this.state.editing) ? this.renderForm()
+                                : this.renderDisplay()}
+          </ReactDraggable>
+          )
+        }
+    })
+
+    var Board = React.createClass({
+      getInitialState() {
+        return {
+          notes: []
+        }
+      },
+      componentWillMount(){
+        if (this.props.count) {
+          var url = `http://baconipsum.com/api/?type=all-meat&sentences=${this.props.count}`
+          fetch(url)
+            .then(results => results.json())
+            .then(array => array[0])
+            .then(text => text.split(". "))
+            .then(array => array.forEach(
+              sentence =>this.add(sentence)))
+            .catch(function(err) {
+              console.log("Didn't contact the API", err)
+            })
+        }
+      },
+      nextId(){
+        this.uniqueId = this.uniqueId || 0
+        return this.uniqueId++
+      },
+      add(text){
+        var notes = [
+          ...this.state.notes,
+          {
+            id: this.nextId(),
+            note: text
+          }
+        ]
+        this.setState({notes})
+      },
+      update(newText, id) {
+        var notes = this.state.notes.map(
+          note => (note.id !== id) ?
+            note :
+            {
+              ...note,
+              note: newText
+            }
+        )
+        this.setState({notes})
+      },
+      remove(id) {
+        var notes = this.state.notes.filter(note => note.id !== id)
+        this.setState({notes})
+      },
+      eachNote(note){
+        return (<Note key={note.id}
+                      id={note.id}
+                      onChange={this.update}
+                      onRemove={this.remove}>
+                  {note.note}
+                </Note>)
+      },
+      propTypes: {
+        count: function(props, propName) {
+          if(typeof props[propName] !== "number") {
+            return new Error("the count must be a number!")
+          }
+          if (props[propName] > 100) {
+            return new Error ('Creating ' + props[propName] + ' notes is ridiculous')
+          }
+        }
+      },
+      render() {
+      return (<div className='board'>
+                {this.state.notes.map(this.eachNote)}
+                <button className='newNote' onClick={()=>this.add('New Note')}>+</button>
+              </div>)
+      }
+    })
+    ReactDOM.render(<Board count={10} />,
+      document.getElementById('react-container'))
+  </script>
+
+</body>
+</html>
