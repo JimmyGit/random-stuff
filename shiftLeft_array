@@ -1,0 +1,19 @@
+const arr = [1,2,3,4,5];
+const shift = 4;  
+
+const shiftLeft = () => {
+const newArr = [];
+var counter = shift;  
+ while (counter < arr.length) {
+   newArr.push(arr[counter]);
+   counter++;
+ }
+  for (let i = 0; i < shift; i++) {
+    newArr.push(arr[i]);
+  }
+  
+  document.getElementById('results').innerHTML = newArr; 
+
+}
+
+shiftLeft();
