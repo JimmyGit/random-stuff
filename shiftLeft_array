@@ -1,3 +1,8 @@
+// Array [1,2,3,4,5]
+// Shift is 1 -> [2,3,4,5,1]
+// Shift is 2 -> [3,4,5,1,2]
+
+
 const arr = [1,2,3,4,5];
 const shift = 4;  
 
