@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading Students</title>
+</head>
+<body>
+    <p id="results"></p>
+
+    <script>
+        // Examples
+        // Skip if score is less than 40.
+        // If the last digits are 3 or 4 you round up to 5.
+        // 73 -> 75 or 74 -> 75
+
+        // If last digits are 8 or 9, round up to the next whole number.
+        // 68 -> 70 or 69 -> 70
+        // [74,67,38,33,58] should return [75,67,40,33,60]
+
+        const score = [74,67,38,33,58];
+        const el = document.getElementById('results');
+        let final;
+
+        const grades = () => {
+        for (let i = 0; i < score.length; i++) {
+            
+            if (score[i] < 38) {
+            final = score[i];    
+            el.innerHTML += final + "<br />";
+            }
+            
+            else {
+            let check = score[i];
+            let gradeArr = check.toString().split("");
+            let lastNum = Number(gradeArr[gradeArr.length-1]);
+            let firstNum = Number(gradeArr[0]);
+            
+            //Check last digit to round up to 5
+            if (lastNum > 2  && lastNum < 5 ) {
+                gradeArr[gradeArr.length - 1] = 5;
+                gradeArr = gradeArr.join("");
+                el.innerHTML += gradeArr + "<br />";
+                }
+            //Check last digit
+            else if (lastNum >= 7) {
+                gradeArr[gradeArr.length - 1] = 0;
+                gradeArr[0] = firstNum + 1;
+                gradeArr = gradeArr.join("");
+                el.innerHTML += gradeArr + "<br />";
+                } 
+            else {
+                el.innerHTML += score[i] + "<br />";
+            }     
+            }
+        }
+        }
+
+        grades();
+        </script>
+</body>
+</html>
