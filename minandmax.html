@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min and Max</title>
+</head>
+<body>
+    <p id='result'></p>
+    
+    <script>
+        const myArr = [1,3,5,7,9];
+
+        const sums = () => {
+        let low = 0;
+        let high = 0;
+        let highLow =[];
+        //sort
+        myArr.sort(function(a,b){return a - b})
+        
+        for (let i = 0; i < myArr.length; i++) {
+            
+            //low
+            if (i < myArr.length-1){
+            low+=myArr[i];
+            }
+            
+            //high
+            if (i >= 1){
+            high+=myArr[i];
+            }
+        }
+        //return low and high in an array.
+        highLow = `${low} ${high}`;
+
+        document.getElementById('result').innerHTML = highLow;  
+        }
+
+        sums();
+    </script>
+</body>
+</html>
