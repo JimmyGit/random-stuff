@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus and Minus</title>
+</head>
+<body>
+<!--
+arr = [-4, 3, -9, 0, 4, 1];
+length is 6
+There are 3 positive numbers
+There are 2 negative numbers
+There are 1 zero.
+
+Return up to 6 decimals.
+
+Positive: 3/6 = 0.500000
+Negative: 2/6 = 0.333333
+Zero: 1/6 = 0.166667
+
+-->
+    <p id="results"></p>
+
+    <script>
+        const plusminus = () => {
+const el = document.getElementById('results');
+const arr = [-4, 3, -9, 0, 4, 1];
+
+ let pos = 0;
+ let neg = 0;
+ let zero = 0;
+ let length = arr.length;
+        
+    for (let i = 0; i < arr.length; i++){
+
+        if (arr[i] > 0) {
+            pos++;
+        }
+        if (arr[i] < 0) {
+            neg++;
+        }
+        if (arr[i] == 0) {
+            zero++;
+        }
+    }
+    pos = pos/length;
+    neg = neg/length;
+    zero = zero/length;
+    
+  el.innerHTML = `${pos.toFixed(6)} <br /> ${neg.toFixed(6)} <br /> ${zero.toFixed(6)}`;
+  
+}
+  
+plusminus();
+</script>
+
+
+</body>
+</html>
