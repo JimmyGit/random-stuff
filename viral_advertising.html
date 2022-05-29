@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viral Advertising</title>
+</head>
+<body>
+    <!--
+        On the first day, half of those 5 people (i.e. 5/2 rounded to a whole is 2 ) like the advertisement and each shares it with 3 of their friends. 
+        At the beginning of the second day, (2x3=6) 6 people receive the advertisement.
+        
+        Each day, (recipients / 2 rounded to the whole number) recipient like the advertisement and will share it with friends on the following day. 
+        Assuming nobody receives the advertisement twice, determine how many people have liked the ad by the end of a given day, beginning with launch 
+        day as day 1.
+        
+        n=5
+
+        Day Shared Liked Cumulative
+        1      5     2       2
+        2      6     3       5
+        3      9     4       9
+        4     12     6      15
+        5     18     9      24
+
+
+    -->
+    <p id="result"></p>
+
+    <script>
+        const viral = (a) => {
+            let counter = 0;
+            let prev = 5;
+            
+            for(let i = 0; i < a; i++){
+                prev = Math.floor(prev/2);
+                counter += prev;
+                prev *=3;
+            }  
+            const el = document.getElementById('result');
+            el.innerHTML = counter;
+        };
+        viral(3);
+    </script>
+</body>
+</html>
